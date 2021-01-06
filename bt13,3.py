@@ -1,21 +1,32 @@
-import os,string,random
+import random
+import string
 
-capa = 1000
-limit = int(input("NHAP GIOI HAN DU LIEU 1-1024MB: "))
-if limit >= 1 and limit <= 1024:
- for i in range(int(limit * 1024 / capa)):
-    file = open('file' + str(i + 1) + '.txt', 'w')
-    file.write(random.choice(string.ascii_letters))
- if int(limit* 1024 % capa) >0 :
-    file = open('file end ' + '.txt', 'w')
-    file.write(random.choice(string.ascii_letters))
- if file.seek(0):
-    os.remove(file)
- file.close()
- print("thanh cong")
-else:
-    print("Sai gioi han")
+def text(): 
+    k=''.join(random.sample(sstring,one_file))
+    return k 
 
+dlmax = int(input('nhap gioi han du lieu (MB): '))
+while (dlmax<1 or dlmax>1024):
+	dlmax = int(input('nhap lại gioi han du lieu (1->1024MB): '))
+
+one_file = 1000*1024 
+
+m = dlmax*(2**20)//(one_file) 
+n = dlmax*(2**20)%(one_file)
+sstring= string.ascii_lowercase*39385
+
+print('số file có kích thước 1KB là: ',m)
+print('file cuối cùng có kích thước: ',n/1024,"KB")
+for i in range(m):
+	file=open('file'+str(i+1)+'.txt' ,'w')
+	file.write(text())
+
+	file.close()
+if n>0: 
+    file=open('file cuoi cung'+'.txt' ,'w')
+    file.write(''.join(random.sample(sstring,n)))
+file.close()
+print('done')
 
 
 
