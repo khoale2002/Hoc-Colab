@@ -8,3 +8,4 @@ os.mkdir(x)
 e= z + x
 os.chdir(e)
 f= open(y,"w")
+f.close()
