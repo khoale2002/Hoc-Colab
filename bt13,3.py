@@ -1,4 +1,5 @@
 import os,string,random
+
 capa = 1000
 limit = int(input("NHAP GIOI HAN DU LIEU 1-1024MB: "))
 if limit >= 1 and limit <= 1024:
